@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "date-fns": "^2.30.0"
+    "date-fns": "^2.30.0",
+    "playwright": "^1.35.1",
+    "puppeteer": "^20.7.2",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   }
 }
