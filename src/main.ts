@@ -20,25 +20,45 @@ import { Browser, chromium, ChromiumBrowser, LaunchOptions, Page } from 'playwri
     const formattedDate = formatter.format(nextFriday);
     console.log(formattedDate.toString());
 
-    const day = formattedDate.split(" ")[0];
+    const dayNb = formattedDate.split(" ")[0];
     const monthName = formattedDate.split(" ")[1];
     const year = formattedDate.split(" ")[2];
 
-    console.log(day)
-    console.log(monthName)
-    console.log(year)
+    const orderTargetDate = `${dayNb}${monthName}`;
+    // 30 juin 2023
+    // Vendredi 23 Juin
 
     const options:LaunchOptions = {headless: false};
 
     const browser:Browser = await chromium.launch(options);
     const page: Page = await browser.newPage();
-    await page.goto('https://stackoverflow.com/questions/68094951/how-to-get-playwright-to-use-the-value-for-headless-in-my-config-file');
+    await page.goto('https://seazon.fr/menu');
 
+    await page.waitForSelector('.selectContainer-0-2-148');
+    await page.click('.selectContainer-0-2-148');
+
+
+    const datesMenu = await page.$$('.root-0-2-156');
+
+    for ( const element of datesMenu ) {
+        let textEl = await element.innerText(); 
+        if ( textEl != undefined ) {
+            textEl = textEl.toLowerCase();
+            const parsed = textEl.split(" ").filter( (el, i ) => i !=0).join("");
+            if ( orderTargetDate ==  parsed) {
+                await element.click();
+            }
+        }
+
+    }
+
+    
+/* 
 
 
     setTimeout( async () => {
         await browser.close();
-    }, 5000)
+    }, 5000) */
 
 
 
