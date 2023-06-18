@@ -1,0 +1,1 @@
+PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=true npm i -D playwright

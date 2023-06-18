@@ -37,7 +37,8 @@ import { Browser, chromium, ChromiumBrowser, LaunchOptions, Page } from 'playwri
     await page.waitForSelector('.selectContainer-0-2-148');
     await page.click('.selectContainer-0-2-148');
 
-
+    // _1foib6e1 _1foib6e2
+    // _1towkzva flexCenter _1towkzvd
     const datesMenu = await page.$$('.root-0-2-156');
 
     for ( const element of datesMenu ) {
@@ -51,6 +52,11 @@ import { Browser, chromium, ChromiumBrowser, LaunchOptions, Page } from 'playwri
         }
 
     }
+
+
+    const clickedFirst = false;
+
+    
 
     
 /* 
